@@ -1,0 +1,17 @@
+<h2>My Saved Books</h2>
+
+{{#if books.length}}
+  <ul>
+    {{#each books}}
+      <li>
+        <strong>{{this.title}}</strong> by {{this.author}}<br>
+        <em>{{this.description}}</em>
+        <button class="delete-btn" data-id="{{this.id}}">Delete</button>
+      </li>
+    {{/each}}
+  </ul>
+{{else}}
+  <p>You haven’t saved any books yet.</p>
+{{/if}}
+
+<a href="/search">Search More</a> | <a href="/">Home</a>

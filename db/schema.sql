@@ -1,0 +1,15 @@
+CREATE TABLE IF NOT EXISTS users (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  username TEXT UNIQUE NOT NULL,
+  password TEXT NOT NULL,
+  role TEXT NOT NULL CHECK(role IN ('guest', 'admin'))
+);
+
+CREATE TABLE IF NOT EXISTS books (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  title TEXT NOT NULL,
+  author TEXT NOT NULL,
+  description TEXT,
+  added_by INTEGER,
+  FOREIGN KEY (added_by) REFERENCES users(id)
+);

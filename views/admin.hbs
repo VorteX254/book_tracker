@@ -1,0 +1,21 @@
+<h2>Admin Dashboard</h2>
+
+<p>Welcome, {{user.username}} (admin)</p>
+
+<h3>Registered Users:</h3>
+<table border="1">
+  <tr>
+    <th>ID</th>
+    <th>Username</th>
+    <th>Role</th>
+  </tr>
+  {{#each users}}
+    <tr>
+      <td>{{this.id}}</td>
+      <td>{{this.username}}</td>
+      <td>{{this.role}}</td>
+    </tr>
+  {{/each}}
+</table>
+
+<a href="/">Back to Home</a>

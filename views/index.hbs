@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Book Tracker</title>
+</head>
+<body>
+  <h1>Welcome to Book Tracker</h1>
+
+  <div class="nav-right">
+    {{#if user}}
+      <span>Hi, {{user.username}}</span>
+      <form action="/logout" method="get" style="display:inline;">
+        <button type="submit" class="nav-btn">Logout</button>
+      </form>
+    {{else}}
+      <form action="/login" method="get" style="display:inline;">
+        <button type="submit" class="nav-btn">Login</button>
+      </form>
+      <form action="/register" method="get" style="display:inline;">
+        <button type="submit" class="nav-btn">Register</button>
+      </form>
+    {{/if}}
+  </div>
+</body>
+</html>

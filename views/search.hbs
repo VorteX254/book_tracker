@@ -1,0 +1,25 @@
+<h2>Search Books</h2>
+
+<form action="/search" method="post">
+  <input type="text" name="query" placeholder="Enter title or author" required>
+  <button type="submit">Search</button>
+</form>
+
+{{#if error}}<p style="color:red">{{error}}</p>{{/if}}
+{{#if books}}
+  <h3>Results for "{{query}}":</h3>
+  <ul>
+    {{#each books}}
+      <li>
+        <strong>{{this.title}}</strong> by {{this.author}}<br>
+        <em>{{this.description}}</em><br>
+        <form action="/books/save" method="post">
+          <input type="hidden" name="title" value="{{this.title}}">
+          <input type="hidden" name="author" value="{{this.author}}">
+          <input type="hidden" name="description" value="{{this.description}}">
+          <button type="submit">Save</button>
+        </form>
+      </li>
+    {{/each}}
+  </ul>
+{{/if}}
